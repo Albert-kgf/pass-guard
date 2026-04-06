@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas Seguras | Herramienta Gratis y Rápida</title>
+    
+    <meta name="description" content="Genera contraseñas aleatorias y altamente seguras al instante. Herramienta online gratuita para proteger tus cuentas. ¡Rápida y segura!">
+    <link rel="canonical" href="http://tusitio.com/">
+
+    <style>
+        :root {
+            --primary-color: #007bff; /* Azul profesional */
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --container-bg: #fff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+        /* Espacio para AdSense Superior (CTR alto) */
+        .ad-space-top {
+            width: 100%;
+            max-width: 970px; /* Tamaño leaderbord ancho */
+            height: 90px;
+            margin: 20px 0;
+            background-color: #eee; /* Fondo gris temporal */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+            color: #777;
+        }
+
+        .container {
+            background-color: var(--container-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* El Resultado (Foco de atención) */
+        .result-container {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace; /* Monospace para contraseñas */
+            font-size: 18px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            word-break: break-all; /* Evita que rompa el layout */
+            position: relative;
+            cursor: pointer; /* Indica que se puede clicar para copiar */
+        }
+
+        .result-container:hover {
+            background-color: #dfe4e8;
+        }
+
+        .copy-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+        .copy-btn:hover { opacity: 1; }
+
+        /* Controles (UX Simple) */
+        .settings-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .setting {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Botón de Acción Principal */
+        .generate-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .generate-btn:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+        }
+
+        /* Notificación de copiado */
+        #copy-notice {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: none; /* Oculto por defecto */
+        }      
+        /* Estilos generales para que la página se vea bien */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Fondo de la página claro para contraste */
+}
+
+/* Contenedor del header (barra superior) */
+.header {
+    /* Usamos el color de fondo oscuro de la imagen 2 */
+    background: radial-gradient(circle, #011326 0%, #000a14 100%);
+    padding: 20px 0; /* Espaciado interno superior e inferior */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Sombra suave para profundidad */
+    display: flex;
+    justify-content: center; /* Centramos el contenido horizontalmente */
+}
+
+/* Contenedor del contenido centrado */
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos específicos para la imagen del logo */
+.logo-img {
+    max-width: 100%; /* Adaptable a pantallas más pequeñas */
+    height: auto; /* Mantenemos la proporción original */
+    max-height: 100px; /* Limita la altura máxima para que no sea gigante */
+    display: block; /* Evita espacios en blanco inferiores */
+}
+    </style>
+</head>
+<body>
+
+    <div class="ad-space-top">ESPACIO PARA ANUNCIO SUPERIOR (970x90)</div>
+
+    <div class="container">
+        <h1>Generador de Contraseñas Seguras</h1>
+        <p class="subtitle">Protege tus cuentas online con una contraseña aleatoria e indescifrable.</p>
+        
+        <div class="result-container" id="result" onclick="copyPassword()">
+            <span id="password-display">Presiona 'Generar'</span>
+            <button class="copy-btn" title="Copiar al portapapeles">📋</button>
+        </div>
+
+        <div class="settings-container">
+            <div class="setting">
+                <label>Longitud de la contraseña</label>
+                <input type="number" id="length" min="4" max="50" value="16">
+            </div>
+            <div class="setting">
+                <label>Incluir Mayúsculas (A-Z)</label>
+                <input type="checkbox" id="uppercase" checked>
+            </div>
+            <div class="setting">
+                <label>Incluir Minúsculas (a-z)</label>
+                <input type="checkbox" id="lowercase" checked>
+            </div>
+            <div class="setting">
+                <label>Incluir Números (0-9)</label>
+                <input type="checkbox" id="numbers" checked>
+            </div>
+            <div class="setting">
+                <label>Incluir Símbolos (@#$%)</label>
+                <input type="checkbox" id="symbols" checked>
+            </div>
+        </div>
+
+        <button class="generate-btn" id="generate">Generar Contraseña</button>
+    </div>
+
+    <div class="ad-space-top" style="max-width:300px; height:250px;">ANUNCIO INFERIOR (300x250)</div>
+
+    <footer>
+        <p>&copy; 2026 TuSitioDeHerramientas.com - Herramienta 100% segura. No guardamos ninguna contraseña.</p>
+        <p><a href="#" style="color:#888;">Política de Privacidad</a></p>
+    </footer>
+
+    <div id="copy-notice">¡Contraseña copiada!</div>
+
+    <script>
+        /* JAVASCRIPT: LÓGICA DE LA HERRAMIENTA (Seguro y Rápido) */
+        const resultEl = document.getElementById('password-display');
+        const lengthEl = document.getElementById('length');
+        const uppercaseEl = document.getElementById('uppercase');
+        const lowercaseEl = document.getElementById('lowercase');
+        const numbersEl = document.getElementById('numbers');
+        const symbolsEl = document.getElementById('symbols');
+        const generateEl = document.getElementById('generate');
+        const copyNoticeEl = document.getElementById('copy-notice');
+
+        // Diccionarios de caracteres
+        const randomFunc = {
+            lower: getRandomLower,
+            upper: getRandomUpper,
+            number: getRandomNumber,
+            symbol: getRandomSymbol
+        };
+
+        generateEl.addEventListener('click', () => {
+            const length = +lengthEl.value; // Convirte string a number
+            const hasUpper = uppercaseEl.checked;
+            const hasLower = lowercaseEl.checked;
+            const hasNumber = numbersEl.checked;
+            const hasSymbol = symbolsEl.checked;
+
+            resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+        });
+
+        function generatePassword(lower, upper, number, symbol, length) {
+            let generatedPassword = '';
+            const typesCount = lower + upper + number + symbol;
+            const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+            
+            // Si no hay tipos seleccionados
+            if(typesCount === 0) {
+                return 'Selecciona una opción';
+            }
+
+            // Generar la contraseña loop por loop
+            for(let i=0; i<length; i+=typesCount) {
+                typesArr.forEach(type => {
+                    const funcName = Object.keys(type)[0];
+                    generatedPassword += randomFunc[funcName]();
+                });
+            }
+
+            // Recortar al largo exacto y mezclar (para más seguridad)
+            const finalPassword = generatedPassword.slice(0, length);
+            return shuffleString(finalPassword);
+        }
+
+        // Función para mezclar la contraseña final (aumenta aleatoriedad visual)
+        function shuffleString(str) {
+            const arr = str.split('');
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.join('');
+        }
+
+        // Generadores de caracteres individuales (USANDO CÓDIGOS ASCII para velocidad)
+        function getRandomLower() {
+            return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+        }
+
+        function getRandomUpper() {
+            return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+        }
+
+        function getRandomNumber() {
+            return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+        }
+
+        function getRandomSymbol() {
+            const symbols = '!@#$%^&*(){}[]=<>/,.';
+            return symbols[Math.floor(Math.random() * symbols.length)];
+        }
+
+        // Función para copiar (Mejora la UX y el "Satisfied User")
+        function copyPassword() {
+            const password = resultEl.innerText;
+            if(!password || password === "Presiona 'Generar'" || password === 'Selecciona una opción') { return; }
+            
+            navigator.clipboard.writeText(password).then(() => {
+                // Mostrar notificación temporal
+                copyNoticeEl.style.display = 'block';
+                setTimeout(() => {
+                    copyNoticeEl.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
